@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,700");
+
+@import "reset.css";
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  background-color: #e4526d;
+  padding: 5px;
+  font-size: 10px;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+section {
+  width: 540px;
+  height: 215px;
+  background-color: #f8f8f8;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 195px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.box i {
+  font-size: 40px;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.fa-camera-retro {
+  background-color: #9bb9b7;
+  color: #14958d;
+}
+
+.fa-gamepad {
+  background-color: #f0efef;
+  color: #3dbdeb;
+}
+
+.fa-safari {
+  background-color: #3dbdeb;
+  color: white;
+}
+
+.camera__box {
+  background-color: #009e91;
+}
+
+.gameCenter__box {
+  background-color: #f8a4a2;
+}
+
+.safari__box {
+  background-color: #d6f0f9;
+}
+
+@keyframes move {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translate(8px, 8px);
+  }
+}
+
+@keyframes moveOut {
+  from {
+    transform: translate(8px, 8px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.camera__hover {
+  opacity: 0;
+  background-color: #273a4b;
+  position: absolute;
+  left: 178px;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: moveOut 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.camera__box:hover ~ .camera__hover,
+.camera__hover:hover {
+  opacity: 1;
+  z-index: 1;
+  animation: move 0.25s ease-in forwards;
+  transition: all 0.25s ease-in;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.author {
+  font-size: 5px;
+  color: #e4526d;
+}
+
+.camera__author {
+  margin-bottom: 15px;
+}
+
+.gameCenter__container {
+  width: 195px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.gameCenter__container:hover ~ .gameCenter__hover {
+  display: block;
+  z-index: 4;
+  top: 358px;
+  height: 50px;
+  transition: all 0.25s ease-in-out;
+}
+
+.gameCenter__hover {
+  background-color: #273a4b;
+  position: absolute;
+  width: 195px;
+  left: 178px;
+  top: 408px;
+  z-index: -1;
+  padding: 10px;
+  overflow: hidden;
+  top: 408px;
+  height: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+@keyframes shrinkUp {
+  from {
+    height: 150px;
+  }
+  to {
+    height: 100px;
+    transform: translateY(-25px);
+  }
+}
+
+@keyframes expandDown {
+  from {
+    height: 100px;
+    transform: translateY(-25px);
+  }
+  to {
+    height: 150px;
+  }
+}
+
+.gameCenter__container:hover ~ .gameCenter__box {
+  animation: shrinkUp 0.25s ease-in-out forwards;
+}
+
+.gameCenter__box {
+  animation: expandDown 0.25s ease-in-out;
+}
+
+.gameCenter__title-container {
+  display: inline-block;
+}
+
+.gameCenter__title {
+  margin-bottom: 0;
+}
+
+.gameCenter__button {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.safari__container {
+  width: 195px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.safari__hover {
+  opacity: 1;
+  background-color: #273a4b;
+  position: absolute;
+  left: 178px;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 15px;
+  transition: all 0.25s ease-in-out;
+}
+
+.safari__title {
+  margin: 0;
+}
+
+.safari__container:hover ~ .safari__box {
+  transform: scale(0.5) translateY(-50px);
+  transition: all 0.25s ease-in-out;
+}
+
+.safari__box {
+  transition: all 0.25s ease-out;
+  z-index: 2;
+}
